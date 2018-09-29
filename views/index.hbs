@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Growth Factor - Welcome</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/style.css">
+
+        <!-- Fontawesome -->
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="font" href="font-awesome/fonts/fontawesome-webfont.woff2">
+
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Playfair+Display:400,700" rel="stylesheet">
+
+
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        
+		<section class="main-all">
+
+			<div class="bg-cover"></div>
+
+	        <section class="banner">
+	        	<div class="container-fluid">
+	        		<div class="row">
+
+	        			<div class="all-sides">
+		        			<!-- LEFT SIDE -->
+		        			<div class="left-session">
+		        				<div class="logo">
+		        					<img src="static/img/logo.png" alt="">
+		        				</div>
+		        				<div class="hero-content">
+		        					<h2>Africa Got Beatz</h2>
+		        					<p>24/7 Live streaming Radio</p>
+		        					<p>Global music.</p>
+		        					<p>First month free on us.</p>
+		        				</div>
+		        				<div class="signup-form">
+		        					<p class="input-title">Get Notified at Launch</p>
+		        					<form>
+			        					<input type="text" name="email" id="email" placeholder="Email Address" />
+			        					<input type="submit" value="submit" />
+		        					</form>
+		        				</div>
+		        				<div class="social">
+		        					<a href="#">
+		        						<img src="static/img/facebook.png" alt="">
+		        					</a>
+		        					<a href="#">
+		        						<img src="static/img/twitter.png" alt="">
+		        					</a>
+		        					<a href="#">
+		        						<img src="static/img/instagram.png" alt="">
+		        					</a>
+		        					<a href="#">
+		        						<img src="static/img/youtube.png" alt="">
+		        					</a>
+		        				</div>
+		        			</div>
+
+		        			<!-- RIGHT SIDE -->
+		        			<div class="right-session">
+		        				<div class="laptop-music">
+		        					<div class="inner-laptop">
+		        						<iframe src="https://www.elasticplayer.xyz/africagotbeatz" style="width: 595px; height: 600px;"
+        scrolling="yes" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0">
+</iframe>
+		        					</div>
+		        					<img src="static/img/laptop.png" alt="">
+		        				</div>
+		        				<div class="phone-music">
+		        					<img src="static/img/phone.png" alt="">
+		        				</div>
+		        			</div>
+	        			</div>
+
+
+	        		</div>
+	        	</div>
+	        </section>
+
+
+		</section>
+
+		<script src="jquery/dist/jquery.min.js"></script>
+		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+
+
+        <script>
+        	
+        	$("#new-invoice").submit(function(){
+
+                console.log('Got h');
+
+                var goods_recieved = $('#goods_recieved').val();
+                var purchase_order = $('#purchase_order').val();
+                var invoice_number = $('#invoice_number').val();
+                var amount = $('#amount').val();
+                var debtor = $('#debtor').val();
+                var supplier_id = 4
+
+                console.log('Got hjk');
+
+                
+                $.ajax({
+                    console.log('got here');
+                    type: "POST",
+                    url: "/invoices",
+                    // The key needs to match your method's input parameter (case-sensitive).
+                    data: JSON.stringify({
+                         goods_recieved: goods_recieved,
+                         purchase_order: purchase_order,
+                         invoice_number: invoice_number,
+                         amount: amount,
+                         supplier_id: supplier_id
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(data){
+                        alert(data);
+                    },
+                    failure: function(errMsg) {
+                        alert(errMsg);
+                    }
+                });
+                
+            });
+
+        </script>
+    </body>
+</html>
